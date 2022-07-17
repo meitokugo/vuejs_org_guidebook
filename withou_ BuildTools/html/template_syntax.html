@@ -1,0 +1,35 @@
+<script src="https://unpkg.com/vue@3"></script>
+
+<span>Message:{{msg}}</span>
+
+
+<p>USing text interpolation:{{ rawHtml}}</p>
+<p>Using v-html directive:<span v-html="rawHtml"></span></p>
+<div v-bind:id="dunamicId">Attribute Bindings</div>
+<div :id=""dynamicId>Attribute Bindings Shorthand</div>
+<button :disabled="isButtonDisabled">BOolean Attributes Button</button>
+
+<!--JavaScript Expressions-->
+{{ number + 1}}
+{{ok ? 'YES':'No'}}
+{{message.split('').reverse().join('')}}
+
+<div :id="`list-${id}`"></div>
+
+
+<script>
+  const { createApp } = Vue
+
+  createApp({
+    data() {
+      return {
+        objectOofAttrs:{
+            // Dynamically Binding 
+            id:'container',
+            class:'wrapper'
+        },
+        message: 'Hello Vue!'
+      }
+    }
+  }).mount('#app')
+</script>
